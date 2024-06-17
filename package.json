@@ -1,0 +1,23 @@
+{
+    "name": "price-monitor",
+    "version": "1.0.0",
+    "description": "",
+    "main": "build/index.js",
+    "scripts": {
+        "build": "tsc",
+        "run": "node build/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "engines": {
+        "node": ">=22.2.0"
+    },
+    "dependencies": {
+        "glob": "10.4.1"
+    },
+    "devDependencies": {
+        "@types/node": "20.12.7",
+        "prettier": "3.2.5",
+        "typescript": "5.4.5"
+    }
+}
