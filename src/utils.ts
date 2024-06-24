@@ -15,3 +15,14 @@ export function isNil<T>(value: T): value is Extract<T, null | undefined> {
 export function isNotNil<T>(value: T): value is Exclude<T, null | undefined> {
     return !isNil(value);
 }
+
+/**
+ * Gets a string representation of a date in YYYY-MM-DD format.
+ */
+export function getDateSting(date: Date): string {
+    const y = date.getFullYear();
+    const m = date.getMonth() + 1;
+    const d = date.getDate();
+
+    return `${y}-${m < 10 ? `0${m}` : m}-${d < 10 ? `0${d}`: d}`;
+}

@@ -2,19 +2,31 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "typescript",
-            "tsconfig": "tsconfig.json",
-            "problemMatcher": ["$tsc"],
-            "group": "build",
-            "label": "Build"
+            "label": "Build",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "run",
+                "build"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+            },
         },
-		{
-            "type": "typescript",
-			"option": "watch", // Add this line to watch the file changes
-            "tsconfig": "tsconfig.json",
-            "problemMatcher": ["$tsc"],
-            "group": "build",
-            "label": "Build: Watch"
-        }
+        {
+            "label": "Build: Watch",
+            "type": "shell",
+            "command": "npm",
+            "args": [
+                "run",
+                "build:watch"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+            },
+            "isBackground": true,
+        },
     ]
 }
