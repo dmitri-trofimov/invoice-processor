@@ -2,6 +2,7 @@ import path from "path";
 import { parsePdf } from "../pdf-parser";
 import { isNotNil } from "../utils";
 import { googleAdsInvoiceProcessor } from "./google/google-ads-invoice-processor";
+import { microsoftAppsForBusinessInvoiceProcessor } from "./microsoft/microsoft-apps-for-business-invoice-processor";
 
 export type Invoice = {
     extractedText: string;
@@ -20,7 +21,7 @@ export type InvoiceProcessResult = {
     processedInvoice: ProcessedInvoice | null;
 };
 
-const invoiceProcessors = [googleAdsInvoiceProcessor];
+const invoiceProcessors = [googleAdsInvoiceProcessor, microsoftAppsForBusinessInvoiceProcessor];
 
 export async function processInvoice(invoiceFilePath: string): Promise<InvoiceProcessResult> {
     try {
@@ -58,7 +59,7 @@ export async function processInvoice(invoiceFilePath: string): Promise<InvoicePr
             fileName: path.basename(invoiceFilePath),
             message: `Error: ${message}`,
             processedInvoice: null,
-        }
+        };
     }
 }
 
