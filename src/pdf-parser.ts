@@ -5,8 +5,8 @@ export async function parsePdf(pdfFilePath: string): Promise<string> {
 
     const promise = new Promise<string>((resolve, reject) => {
         parser.on("pdfParser_dataError", reject);
-            
-        parser.on("pdfParser_dataReady", (pdfData) => {
+
+        parser.on("pdfParser_dataReady", pdfData => {
             const strings = pdfData.Pages.flatMap(page => page.Texts.flatMap(text => text.R.map(r => r.T)));
             const extractedText = strings.join("");
             const decodedText = decodeURIComponent(extractedText);

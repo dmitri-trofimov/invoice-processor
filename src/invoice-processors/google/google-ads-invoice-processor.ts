@@ -28,7 +28,39 @@ function isGoogleAdsInvoice(invoice: Invoice): boolean {
 export const googleAdsInvoiceProcessor = processInvoice;
 
 function getInvoiceDate(invoice: Invoice): string {
+    const account = getInvoiceAccount(invoice);
+
+    if (account === "Tetris") {
+        return getTetrisInvoiceDate(invoice);
+    } else if (account === "Ellex") {
+        return getEllexInvoiceDate(invoice);
+    }
+
     const dateMatch = invoice.extractedText.match(/\.([a-zA-Z]* \d+, \d\d\d\d)Invoice/);
+
+    if (!dateMatch || dateMatch.length < 2) {
+        throw Error("Invoice date not found");
+    }
+
+    const date = new Date(dateMatch[1]);
+
+    return getDateSting(date);
+}
+
+function getTetrisInvoiceDate(invoice: Invoice): string {
+    const dateMatch = invoice.extractedText.match(/\.([a-zA-Z]* \d+, \d\d\d\d)Invoice/);
+
+    if (!dateMatch || dateMatch.length < 2) {
+        throw Error("Invoice date not found");
+    }
+
+    const date = new Date(dateMatch[1]);
+
+    return getDateSting(date);
+}
+
+function getEllexInvoiceDate(invoice: Invoice): string {
+    const dateMatch = invoice.extractedText.match(/\.(\d\d [A-Za-z]+ \d\d\d\d)Invoice/);
 
     if (!dateMatch || dateMatch.length < 2) {
         throw Error("Invoice date not found");
