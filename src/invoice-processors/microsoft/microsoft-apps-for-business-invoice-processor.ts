@@ -9,7 +9,7 @@ function processInvoice(invoice: Invoice): ProcessedInvoice | null {
     const invoiceDate = getInvoiceDate(invoice);
     const invoiceNumber = getInvoiceNumber(invoice);
 
-    const processedFileName = `${invoiceDate} — Invoice ${invoiceNumber} — Microsoft (Apps for Business).pdf`;
+    const processedFileName = `${invoiceDate} - Invoice ${invoiceNumber} - Microsoft (Apps for Business).pdf`;
 
     const processedInvoice: ProcessedInvoice = {
         ...invoice,

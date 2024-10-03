@@ -10,7 +10,7 @@ function processInvoice(invoice: Invoice): ProcessedInvoice | null {
     const invoiceNumber = getInvoiceNumber(invoice);
     const invoiceAccount = getInvoiceAccount(invoice);
 
-    const processedFileName = `${invoiceDate} — Invoice ${invoiceNumber} — Google (Ads, ${invoiceAccount}).pdf`;
+    const processedFileName = `${invoiceDate} - Invoice ${invoiceNumber} - Google (Ads, ${invoiceAccount}).pdf`;
 
     const processedInvoice: ProcessedInvoice = {
         ...invoice,
