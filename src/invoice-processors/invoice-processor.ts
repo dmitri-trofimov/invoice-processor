@@ -2,8 +2,9 @@ import path from "path";
 import { parsePdf } from "../pdf-parser";
 import { isNotNil } from "../utils";
 import { googleAdsInvoiceProcessor } from "./google/google-ads-invoice-processor";
-import { microsoftAppsForBusinessInvoiceProcessor } from "./microsoft/microsoft-apps-for-business-invoice-processor";
 import { googleWorkspaceInvoiceProcessor } from "./google/google-workspace-invoice-processor";
+import { microsoftAppsForBusinessInvoiceProcessor } from "./microsoft/microsoft-apps-for-business-invoice-processor";
+import { reportingNinjaInvoiceProcessor } from "./brainless-lab/reporting-ninja-invoice-processor";
 
 export type Invoice = {
     extractedText: string;
@@ -26,6 +27,7 @@ const invoiceProcessors = [
     googleAdsInvoiceProcessor,
     googleWorkspaceInvoiceProcessor,
     microsoftAppsForBusinessInvoiceProcessor,
+    reportingNinjaInvoiceProcessor,
 ];
 
 export async function processInvoice(invoiceFilePath: string): Promise<InvoiceProcessResult> {
