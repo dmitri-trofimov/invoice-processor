@@ -25,7 +25,11 @@ export async function parsePdf(pdfFilePath: string): Promise<string> {
                     const line = lines.get(key)!;
                     const sortedTexts = line.sort((a, b) => a.x - b.x);
                         
-                    text += sortedTexts.map(t => decodeURIComponent(t.R[0].T)).join(" ") + "\n";
+                    text += sortedTexts
+                        .map(t => decodeURIComponent(t.R[0].T).trim())
+                        .filter(t => t.length > 0)
+                        .join(" ")
+                        + "\n";
                 }
             }
 

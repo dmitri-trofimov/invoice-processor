@@ -4,6 +4,7 @@ import { isNotNil } from "../utils";
 import { googleAdsInvoiceProcessor } from "./google/google-ads-invoice-processor";
 import { googleWorkspaceInvoiceProcessor } from "./google/google-workspace-invoice-processor";
 import { microsoftAppsForBusinessInvoiceProcessor } from "./microsoft/microsoft-apps-for-business-invoice-processor";
+import { postimeesInvoiceProcessor } from "./postimees-grupp/postimees-invoice-processor";
 import { reportingNinjaInvoiceProcessor } from "./brainless-lab/reporting-ninja-invoice-processor";
 
 export type Invoice = {
@@ -27,6 +28,7 @@ const invoiceProcessors = [
     googleAdsInvoiceProcessor,
     googleWorkspaceInvoiceProcessor,
     microsoftAppsForBusinessInvoiceProcessor,
+    postimeesInvoiceProcessor,
     reportingNinjaInvoiceProcessor,
 ];
 
