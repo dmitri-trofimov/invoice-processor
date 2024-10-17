@@ -48,7 +48,7 @@ function getInvoiceDate(invoice: Invoice): string {
 }
 
 function getTetrisInvoiceDate(invoice: Invoice): string {
-    const dateMatch = invoice.extractedText.match(/\.([a-zA-Z]* \d+, \d\d\d\d)Invoice/);
+    const dateMatch = invoice.extractedText.match(/Invoice date[ \.]+(.+?) \./m);
 
     if (!dateMatch || dateMatch.length < 2) {
         throw Error("Invoice date not found");
@@ -72,7 +72,7 @@ function getEllexInvoiceDate(invoice: Invoice): string {
 }
 
 function getInvoiceNumber(invoice: Invoice): string {
-    const invoiceNumberMatch = invoice.extractedText.match(/Invoice number: (\d+)Details\./);
+    const invoiceNumberMatch = invoice.extractedText.match(/Invoice number: (\d+)/);
 
     if (!invoiceNumberMatch || invoiceNumberMatch.length < 2) {
         throw Error("Invoice number not found");
