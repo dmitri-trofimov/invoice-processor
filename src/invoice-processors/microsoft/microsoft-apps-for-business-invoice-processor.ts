@@ -9,7 +9,7 @@ function processInvoice(invoice: Invoice): ProcessedInvoice | null {
     const invoiceDate = getInvoiceDate(invoice);
     const invoiceNumber = getInvoiceNumber(invoice);
 
-    const processedFileName = `${invoiceDate} - Invoice ${invoiceNumber} - Microsoft (Apps for Business).pdf`;
+    const processedFileName = `${invoiceDate} — Invoice ${invoiceNumber} — Microsoft (Apps for Business).pdf`;
 
     const processedInvoice: ProcessedInvoice = {
         ...invoice,
@@ -39,7 +39,7 @@ function getInvoiceDate(invoice: Invoice): string {
 }
 
 function getInvoiceNumber(invoice: Invoice): string {
-    const invoiceNumberMatch = invoice.extractedText.match(/Invoice Number: (.*?)Due Date/);
+    const invoiceNumberMatch = invoice.extractedText.match(/Invoice Number: (.*?)/);
 
     if (!invoiceNumberMatch || invoiceNumberMatch.length < 2) {
         throw Error("Invoice number not found");
