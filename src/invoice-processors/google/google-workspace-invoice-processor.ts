@@ -9,7 +9,7 @@ function processInvoice(invoice: Invoice): ProcessedInvoice | null {
     const invoiceDate = getInvoiceDate(invoice);
     const invoiceNumber = getInvoiceNumber(invoice);
 
-    const processedFileName = `${invoiceDate} - Invoice ${invoiceNumber} - Google (Workspace).pdf`;
+    const processedFileName = `${invoiceDate} — Invoice ${invoiceNumber} — Google (Workspace).pdf`;
 
     const processedInvoice: ProcessedInvoice = {
         ...invoice,
@@ -21,13 +21,13 @@ function processInvoice(invoice: Invoice): ProcessedInvoice | null {
 }
 
 function isGoogleWorkspaceInvoice(invoice: Invoice): boolean {
-    return invoice.extractedText.includes("Google Workspace");
+    return invoice.extractedText.includes("Google W orkspace");
 }
 
 export const googleWorkspaceInvoiceProcessor = processInvoice;
 
 function getInvoiceDate(invoice: Invoice): string {
-    const dateMatch = invoice.extractedText.match(/\.([a-zA-Z]* \d+, \d\d\d\d)\./);
+    const dateMatch = invoice.extractedText.match(/Invoice date[\s\.]+([a-zA-Z]* \d+, \d\d\d\d)/);
 
     if (!dateMatch || dateMatch.length < 2) {
         throw Error("Invoice date not found");
@@ -39,7 +39,7 @@ function getInvoiceDate(invoice: Invoice): string {
 }
 
 function getInvoiceNumber(invoice: Invoice): string {
-    const invoiceNumberMatch = invoice.extractedText.match(/Invoice number: (\d+)\./);
+    const invoiceNumberMatch = invoice.extractedText.match(/Invoice number[\s\.]+(\d+)/);
 
     if (!invoiceNumberMatch || invoiceNumberMatch.length < 2) {
         throw Error("Invoice number not found");
