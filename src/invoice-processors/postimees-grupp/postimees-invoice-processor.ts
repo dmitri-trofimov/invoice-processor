@@ -10,7 +10,7 @@ function processInvoice(invoice: Invoice): ProcessedInvoice | null {
     const invoiceNumber = getInvoiceNumber(invoice);
     const service = getInvoiceService(invoice);
 
-    const processedFileName = `${invoiceDate} - Invoice ${invoiceNumber} - Postimees Grupp (${service}).pdf`;
+    const processedFileName = `${invoiceDate} — Invoice ${invoiceNumber} — Postimees Grupp (${service}).pdf`;
 
     const processedInvoice: ProcessedInvoice = {
         ...invoice,
