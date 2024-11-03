@@ -13,7 +13,7 @@ function processInvoice(invoice: Invoice): ProcessedInvoice | null {
 
     const processedInvoice: ProcessedInvoice = {
         ...invoice,
-        processorName: "Microsoft Apps for Business",
+        processorName: "Microsoft4 Apps for Business",
         processedFileName,
     };
 
@@ -39,7 +39,7 @@ function getInvoiceDate(invoice: Invoice): string {
 }
 
 function getInvoiceNumber(invoice: Invoice): string {
-    const invoiceNumberMatch = invoice.extractedText.match(/Invoice Number: (.*?)/);
+    const invoiceNumberMatch = invoice.extractedText.match(/Invoice Number: (.+)/);
 
     if (!invoiceNumberMatch || invoiceNumberMatch.length < 2) {
         throw Error("Invoice number not found");
