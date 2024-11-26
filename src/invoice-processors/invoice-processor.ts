@@ -6,6 +6,7 @@ import { googleWorkspaceInvoiceProcessor } from "./google/google-workspace-invoi
 import { microsoftAppsForBusinessInvoiceProcessor } from "./microsoft/microsoft-apps-for-business-invoice-processor";
 import { postimeesInvoiceProcessor } from "./postimees-grupp/postimees-invoice-processor";
 import { reportingNinjaInvoiceProcessor } from "./brainless-lab/reporting-ninja-invoice-processor";
+import { happyWriterInvoiceProcessor } from "./happy-writer/happy-writer-invoice-processor";
 
 export type Invoice = {
     extractedText: string;
@@ -27,6 +28,7 @@ export type InvoiceProcessResult = {
 const invoiceProcessors = [
     googleAdsInvoiceProcessor,
     googleWorkspaceInvoiceProcessor,
+    happyWriterInvoiceProcessor,
     microsoftAppsForBusinessInvoiceProcessor,
     postimeesInvoiceProcessor,
     reportingNinjaInvoiceProcessor,
