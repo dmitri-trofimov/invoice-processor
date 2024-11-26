@@ -1,12 +1,15 @@
 import path from "path";
+
 import { parsePdf } from "../pdf-parser";
 import { isNotNil } from "../utils";
+
+import { balticMediaInvoiceProcessor } from "./baltic-media/baltic-media-invoice-processor";
 import { googleAdsInvoiceProcessor } from "./google/google-ads-invoice-processor";
 import { googleWorkspaceInvoiceProcessor } from "./google/google-workspace-invoice-processor";
+import { happyWriterInvoiceProcessor } from "./happy-writer/happy-writer-invoice-processor";
 import { microsoftAppsForBusinessInvoiceProcessor } from "./microsoft/microsoft-apps-for-business-invoice-processor";
 import { postimeesInvoiceProcessor } from "./postimees-grupp/postimees-invoice-processor";
 import { reportingNinjaInvoiceProcessor } from "./brainless-lab/reporting-ninja-invoice-processor";
-import { happyWriterInvoiceProcessor } from "./happy-writer/happy-writer-invoice-processor";
 
 export type Invoice = {
     extractedText: string;
@@ -26,6 +29,7 @@ export type InvoiceProcessResult = {
 };
 
 const invoiceProcessors = [
+    balticMediaInvoiceProcessor,
     googleAdsInvoiceProcessor,
     googleWorkspaceInvoiceProcessor,
     happyWriterInvoiceProcessor,
