@@ -39,11 +39,11 @@ function getInvoiceDate(invoice: Invoice): string {
 }
 
 function getInvoiceNumber(invoice: Invoice): string {
-    const invoiceNumberMatch = invoice.extractedText.match(/Invoice number[\s\.]+(\d+)/);
+    const invoiceNumberMatch = invoice.extractedText.match(/Invoice number:[\s\.]+([\d\s]+)/);
 
     if (!invoiceNumberMatch || invoiceNumberMatch.length < 2) {
         throw Error("Invoice number not found");
     }
 
-    return invoiceNumberMatch[1];
+    return invoiceNumberMatch[1].replaceAll(/\D/g, "");
 }
