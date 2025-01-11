@@ -22,7 +22,7 @@ function processInvoice(invoice: Invoice): ProcessedInvoice | null {
 }
 
 function isGoogleAdsInvoice(invoice: Invoice): boolean {
-    return invoice.extractedText.includes("Google Ads");
+    return invoice.extractedText.includes("Google Ads") && invoice.extractedText.includes("Google Ireland");
 }
 
 export const googleAdsInvoiceProcessor = processInvoice;
