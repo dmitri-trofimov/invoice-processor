@@ -4,6 +4,7 @@ import { parsePdf } from "../pdf-parser";
 import { isNotNil } from "../utils";
 
 import { balticMediaInvoiceProcessor } from "./baltic-media/baltic-media-invoice-processor";
+import { delfiMeediaInvoiceProcessor } from "./delfi-media/delfi-meedia-invoice-processor";
 import { googleAdsInvoiceProcessor } from "./google/google-ads-invoice-processor";
 import { googleWorkspaceInvoiceProcessor } from "./google/google-workspace-invoice-processor";
 import { happyWriterInvoiceProcessor } from "./happy-writer/happy-writer-invoice-processor";
@@ -32,6 +33,7 @@ export type InvoiceProcessResult = {
 
 const invoiceProcessors = [
     balticMediaInvoiceProcessor,
+    delfiMeediaInvoiceProcessor,
     googleAdsInvoiceProcessor,
     googleWorkspaceInvoiceProcessor,
     happyWriterInvoiceProcessor,
