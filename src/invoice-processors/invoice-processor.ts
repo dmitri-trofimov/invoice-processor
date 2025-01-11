@@ -8,6 +8,7 @@ import { googleAdsInvoiceProcessor } from "./google/google-ads-invoice-processor
 import { googleWorkspaceInvoiceProcessor } from "./google/google-workspace-invoice-processor";
 import { happyWriterInvoiceProcessor } from "./happy-writer/happy-writer-invoice-processor";
 import { microsoftAppsForBusinessInvoiceProcessor } from "./microsoft/microsoft-apps-for-business-invoice-processor";
+import { oskarGruppInvoiceProcessor } from "./oskar-grupp/oskar-grupp-invoice-processor";
 import { postimeesInvoiceProcessor } from "./postimees-grupp/postimees-invoice-processor";
 import { reportingNinjaInvoiceProcessor } from "./brainless-lab/reporting-ninja-invoice-processor";
 
@@ -34,6 +35,7 @@ const invoiceProcessors = [
     googleWorkspaceInvoiceProcessor,
     happyWriterInvoiceProcessor,
     microsoftAppsForBusinessInvoiceProcessor,
+    oskarGruppInvoiceProcessor,
     postimeesInvoiceProcessor,
     reportingNinjaInvoiceProcessor,
 ];
