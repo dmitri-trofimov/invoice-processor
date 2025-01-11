@@ -11,6 +11,7 @@ import { microsoftAppsForBusinessInvoiceProcessor } from "./microsoft/microsoft-
 import { oskarGruppInvoiceProcessor } from "./oskar-grupp/oskar-grupp-invoice-processor";
 import { postimeesInvoiceProcessor } from "./postimees-grupp/postimees-invoice-processor";
 import { reportingNinjaInvoiceProcessor } from "./brainless-lab/reporting-ninja-invoice-processor";
+import { turunduskoolitusInvoiceProcessor } from "./turunduskoolitus/turunduskoolitus-invoice-processor";
 
 export type Invoice = {
     extractedText: string;
@@ -38,6 +39,7 @@ const invoiceProcessors = [
     oskarGruppInvoiceProcessor,
     postimeesInvoiceProcessor,
     reportingNinjaInvoiceProcessor,
+    turunduskoolitusInvoiceProcessor,
 ];
 
 export async function processInvoice(invoiceFilePath: string): Promise<InvoiceProcessResult> {
